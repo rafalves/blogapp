@@ -1,22 +1,22 @@
 // Imports
-    const express = require('express')
-    const { engine } = require('express-handlebars')
-    const bodyParser = require('body-parser')
-    const app = express()
-    //const mongoose = require('mongoose')
+    const express = require('express');
+    const { engine } = require('express-handlebars');
+    const app = express();
+    //const mongoose = require('mongoose');
+    const admin = require('./routes/admin');
 
 // Configs
-    // Body Parser
-        app.use(bodyParser.urlencoded({extended: true}))
-        app.use(bodyParser.json)
+    // JSON
+        app.use(express({extended: true}));
+        app.use(express.json());
     // Handlebars
         app.engine('handlebars', engine());
         app.set('view engine', 'handlebars');
         app.set('views', './views');
 // Routes
-
+    app.use('/admin', admin);
 // Others
-    const PORT = process.env.PORT || 8081
+    const PORT = process.env.PORT || 8081;
     app.listen(PORT, () => {
-        console.log('Server running')
-    })
+        console.log('Server running');
+    });
