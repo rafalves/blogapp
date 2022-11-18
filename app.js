@@ -3,6 +3,7 @@
     const { engine } = require('express-handlebars');
     const app = express();
     //const mongoose = require('mongoose');
+    const path = require('path')
     const admin = require('./routes/admin');
 
 // Configs
@@ -13,6 +14,9 @@
         app.engine('handlebars', engine());
         app.set('view engine', 'handlebars');
         app.set('views', './views');
+    // Public
+        app.use(express.static(path.join(__dirname, 'public')));
+
 // Routes
     app.use('/admin', admin);
 // Others
