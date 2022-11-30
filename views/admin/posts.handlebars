@@ -1,0 +1,17 @@
+<h2>List of Posts</h2>
+<hr>
+<a href="/admin/posts/add"><button class="btn btn-success">Add new Post</button></a>
+
+{{#each posts}}
+    <div class="card mt-2">
+        <div class="card-body">
+           <h4>Title: {{title}}</h4>
+           <p>Description: {{description}}</p>
+           <small>{{date}}</small><br>
+           <small>category: {{category.name}}</small><br>
+           <a href="/admin/posts/edit/{{_id}}"><button class="btn btn-success">Edit Post</button></a>
+        </div>
+    </div>
+{{else}}
+    <p>Post not created yet...</p>
+{{/each}}

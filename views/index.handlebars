@@ -1,0 +1,27 @@
+<div style="background:#E9ECEF" class="p-5 rounded-lg ">
+  <h1 class="display-4">Welcome to Node Blog!</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </p>
+</div>
+<hr class="my-4">
+<h2>Recents Posts</h2>
+
+
+{{#each posts}}
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <a href="/posts/{{slug}}"><button class="btn btn-success">Read more</button></a>
+        <hr>
+        <small>Catagory: {{category.name}}</small><br>
+        <small>Publish date: {{date}}</small>
+    </div>
+</div>
+{{else}}
+<h5>No post yet</h5>
+{{/each}}
